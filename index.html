@@ -25,11 +25,11 @@ section{
 
 .card{
   background:white;
-  max-width:650px;
+  max-width:700px;
   margin:auto;
   padding:25px;
   border-radius:12px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  box-shadow:0 0 12px rgba(0,0,0,0.1);
 }
 
 button{
@@ -47,12 +47,32 @@ button:hover{
   background:#6ec6e8;
 }
 
+.whatsapp{
+  background:#25D366;
+  color:white;
+}
+
 input{
   width:90%;
   padding:10px;
   margin:8px 0;
   border-radius:6px;
   border:1px solid #ccc;
+}
+
+img{
+  width:100%;
+  border-radius:10px;
+  margin:10px 0;
+}
+
+.note{
+  background:#fff3cd;
+  padding:12px;
+  border-radius:8px;
+  margin-top:15px;
+  color:#856404;
+  font-weight:bold;
 }
 
 footer{
@@ -73,26 +93,66 @@ footer{
 
 <section>
 <div class="card">
-<h2>Room Price</h2>
-<h1>₹7000 / Month</h1>
-<p>Fully Furnished | Safe Environment | Clean Rooms</p>
+<h2>Pricing Plans</h2>
+
+<h3>₹7000 per Month</h3>
+<p>✔️ Affordable & Comfortable Stay</p>
+
+<h3>₹36,000 for 6 Months</h3>
+<p>(Save ₹6,000)</p>
+
+<h3>₹60,000 for 1 Year</h3>
+<p>(Best Value Plan)</p>
+
+<hr>
+
+<h3>Security Deposit: ₹7000</h3>
+<p>Payable in advance at the time of booking</p>
+
+<div class="note">
+⚠️ Note: Fooding is NOT included in the rent
+</div>
+
 </div>
 </section>
 
 <section>
 <div class="card">
 <h2>Facilities</h2>
-<p>✔️ Bed & Mattress<br>
-✔️ WiFi<br>
-✔️ Drinking Water<br>
-✔️ Power Backup<br>
-✔️ Safe for Students & Working Women</p>
+
+<p>
+✔️ Bed & Mattress <br>
+✔️ Wi-Fi <br>
+✔️ RO Drinking Water <br>
+✔️ Power Backup <br>
+✔️ CCTV Security <br>
+✔️ Refrigerator <br>
+✔️ Induction Cooking Allowed <br>
+✔️ Triple Sharing Rooms <br>
+✔️ Common Room with Chairs & Tables <br>
+✔️ Daily Newspaper <br>
+✔️ Safe for Students & Working Women
+</p>
+
 </div>
 </section>
 
 <section>
 <div class="card">
-<h2>Register Now</h2>
+<h2>Photo Gallery</h2>
+
+<img src="https://via.placeholder.com/600x350?text=Room+Photo">
+<img src="https://via.placeholder.com/600x350?text=Common+Area">
+<img src="https://via.placeholder.com/600x350?text=PG+Building">
+
+<p>Real photos will be uploaded soon</p>
+
+</div>
+</section>
+
+<section>
+<div class="card">
+<h2>Register / Admission Form</h2>
 
 <input type="text" placeholder="Full Name">
 <input type="text" placeholder="Phone Number">
@@ -103,29 +163,45 @@ footer{
 <button onclick="alert('Registration Submitted! We will contact you soon.')">
 Submit Registration
 </button>
+
 </div>
 </section>
 
 <section>
 <div class="card">
-<h2>Payment</h2>
+<h2>Advance Booking Payment</h2>
+
 <p>Pay booking amount to reserve your room</p>
 
-<button onclick="alert('Payment option will be integrated soon.')">
-Pay Now
+<button onclick="alert('UPI Payment will be enabled soon.')">
+Pay via UPI
 </button>
+
 </div>
 </section>
 
 <section>
 <div class="card">
-<h2>Contact</h2>
+<h2>Contact & Location</h2>
+
 <p>📞 Call / WhatsApp: <b>8969994472</b></p>
-<p>📍 Location: Anisabad, Patna</p>
+<p>📍 Anisabad, Patna</p>
 
 <button onclick="window.location.href='tel:8969994472'">
 Call Now
 </button>
+
+<button class="whatsapp"
+onclick="window.open('https://wa.me/918969994472','_blank')">
+WhatsApp Book Now
+</button>
+
+<br>
+
+<button onclick="window.open('https://maps.google.com/?q=Anisabad,Patna','_blank')">
+View on Google Maps
+</button>
+
 </div>
 </section>
 
