@@ -17,7 +17,7 @@
         :root {
             --yellow: #FFD54F;
             --orange: #FFB74D;
-            --sky: #FFF8E1;
+            --sky: #87CEEB; /* Brighter Sky Blue */
             --blue: #003366;
             --wa: #25D366;
             --red: #D32F2F;
@@ -32,112 +32,123 @@
             overflow-x: hidden;
         }
 
-        /* ===== SUMMER BACKGROUND & CLOUDS ===== */
-        .sky-layer {
+        /* ===== THE SUN ===== */
+        .sun {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, #FFF9C4 0%, var(--sky) 100%);
-            z-index: -3;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #FFF9C4 0%, #FFD54F 50%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(20px);
+            animation: pulse 4s ease-in-out infinite;
         }
 
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* ===== FAST CLOUDS ===== */
         .cloud {
             position: fixed;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0.6;
-            filter: blur(40px);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            filter: blur(15px);
             z-index: -2;
-            animation: drift linear infinite;
+            animation: drift-fast linear infinite;
         }
 
-        @keyframes drift {
-            from { transform: translateX(-350px); }
+        @keyframes drift-fast {
+            from { transform: translateX(-400px); }
             to { transform: translateX(110vw); }
         }
 
-        /* ===== FALLING LEAVES ===== */
+        /* ===== FAST FALLING LEAVES ===== */
         .leaf {
             position: fixed;
             top: -50px;
             z-index: 999;
             pointer-events: none;
-            animation: fallSway linear infinite;
+            animation: fall-fast linear infinite;
             font-size: 24px;
         }
 
-        @keyframes fallSway {
+        @keyframes fall-fast {
             0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(105vh) rotate(360deg) translateX(120px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg) translateX(200px); opacity: 0; }
+        }
+
+        /* ===== GLASS EFFECT (Glassmorphism) ===== */
+        .glass {
+            background: rgba(255, 255, 255, 0.25) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
         }
 
         nav {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
             padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             z-index: 1000;
         }
 
         .section { max-width: 1100px; margin: 30px auto; padding: 20px; position: relative; z-index: 10; }
         
         .card {
-            background: #fff;
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
             margin-bottom: 30px;
         }
 
-        /* ===== FACILITIES LIST ===== */
         .facilities-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
+
         .facility-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 500;
+            font-weight: 600;
             padding: 12px;
-            background: #fdfaf0;
+            background: rgba(255, 255, 255, 0.4);
             border-radius: 10px;
-            border: 1px solid rgba(255,183,77,0.2);
         }
 
-        /* ===== PRICING ===== */
         .pricing-wrap {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
+
         .price-card {
-            background: #fff;
             padding: 40px 20px;
             border-radius: 20px;
             text-align: center;
-            border: 1px solid #f0f0f0;
             position: relative;
         }
-        .price-card.featured { border: 2.5px solid var(--orange); }
+
+        .price-card.featured { border: 2px solid var(--orange) !important; }
+
         .save-tag {
             background: var(--orange); color: #fff; padding: 6px 16px;
             border-radius: 20px; position: absolute; top: -18px; left: 50%;
             transform: translateX(-50%); font-weight: 800; font-size: 0.85rem;
         }
-        .price-val { font-size: 2.8rem; font-weight: 800; margin: 10px 0; }
 
-        /* ===== FAQ ===== */
-        .faq-item { margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
-        .faq-q { font-weight: 700; color: var(--blue); font-size: 1.1rem; }
-        .faq-a { color: #555; margin-top: 5px; font-weight: 500; }
+        .price-val { font-size: 2.8rem; font-weight: 800; margin: 10px 0; }
 
         .btn {
             padding: 16px 32px; border-radius: 12px; border: none;
@@ -150,44 +161,42 @@
         .float-container { position: fixed; bottom: 30px; right: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 2000; }
         .f-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 26px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-decoration: none; }
 
-        @media (max-width: 768px) {
-            .price-val { font-size: 2.2rem; }
-        }
     </style>
 </head>
 <body>
 
-    <div class="sky-layer"></div>
+    <div class="sun"></div>
     
-    <div class="cloud" style="width: 300px; height: 100px; top: 15%; animation-duration: 45s;"></div>
-    <div class="cloud" style="width: 200px; height: 80px; top: 35%; animation-duration: 60s; animation-delay: -5s;"></div>
+    <div class="cloud" style="width: 250px; height: 80px; top: 10%; animation-duration: 15s;"></div>
+    <div class="cloud" style="width: 350px; height: 100px; top: 25%; animation-duration: 22s; animation-delay: -5s;"></div>
+    <div class="cloud" style="width: 200px; height: 60px; top: 50%; animation-duration: 18s; animation-delay: -8s;"></div>
 
     <script>
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 20; i++) {
             let leaf = document.createElement('div');
             leaf.className = 'leaf';
             leaf.innerHTML = '🍃';
             leaf.style.left = Math.random() * 100 + 'vw';
-            leaf.style.animationDuration = (Math.random() * 6 + 8) + 's';
-            leaf.style.animationDelay = (Math.random() * 10) + 's';
+            leaf.style.animationDuration = (Math.random() * 2 + 3) + 's'; // Fast: 3-5 seconds
+            leaf.style.animationDelay = (Math.random() * 5) + 's';
             document.body.appendChild(leaf);
         }
     </script>
 
-    <nav>
+    <nav class="glass">
         <div class="nav-logo" style="font-weight: 800;">Girls PG Anisabad</div>
         <div style="font-size: 0.9rem; font-weight: 600;">Patna, Bihar</div>
     </nav>
 
-    <header style="text-align: center; padding: 70px 20px;">
+    <header class="section glass" style="text-align: center; margin-top: 40px;">
         <h1 style="font-size: 2.8rem; margin-bottom: 10px;">Girls PG — Anisabad Patna</h1>
         <p style="font-size: 1.2rem; margin-bottom: 20px; font-weight: 600;">Premium Triple Sharing Accommodation</p>
-        <p style="color: var(--red); font-weight: 800; background: rgba(211,47,47,0.1); display: inline-block; padding: 8px 20px; border-radius: 8px; border: 1px solid var(--red);">⚠️ NOTE: FOODING NOT INCLUDED</p>
+        <p style="color: var(--red); font-weight: 800; background: rgba(255,255,255,0.7); display: inline-block; padding: 8px 20px; border-radius: 8px; border: 2px solid var(--red);">⚠️ NOTE: FOODING NOT INCLUDED</p>
     </header>
 
     <div class="section">
-        <div class="card">
-            <h2 style="margin-bottom: 25px; color: var(--blue);">Facilities</h2>
+        <div class="card glass">
+            <h2 style="margin-bottom: 25px;">Facilities</h2>
             <div class="facilities-grid">
                 <div class="facility-item">🛏️ Bed & Mattress</div>
                 <div class="facility-item">📶 Wi-Fi</div>
@@ -203,68 +212,48 @@
             </div>
         </div>
 
-        <h2 style="text-align: center; margin-bottom: 35px; color: var(--blue);">Triple Sharing Plans</h2>
+        <h2 style="text-align: center; margin-bottom: 35px;">Pricing Plans</h2>
         <div class="pricing-wrap">
-            <div class="price-card">
+            <div class="price-card glass">
                 <h3>Monthly</h3>
                 <div class="price-val">₹7,000</div>
                 <p style="font-weight: 700;">+ ₹7,000 Security Deposit</p>
-                <p style="color: var(--red); font-size: 0.85rem; margin-top: 10px;">(Food Not Included)</p>
             </div>
-            <div class="price-card featured">
+            <div class="price-card glass featured">
                 <div class="save-tag">SAVE ₹6,000</div>
                 <h3>6 Months</h3>
                 <div class="price-val">₹36,000</div>
                 <p style="font-weight: 700;">+ ₹7,000 Security Deposit</p>
-                <p style="color: var(--red); font-size: 0.85rem; margin-top: 10px;">(Food Not Included)</p>
             </div>
-            <div class="price-card featured">
+            <div class="price-card glass featured">
                 <div class="save-tag">SAVE ₹24,000</div>
                 <h3>Yearly</h3>
                 <div class="price-val">₹60,000</div>
                 <p style="font-weight: 700;">+ ₹7,000 Security Deposit</p>
-                <p style="color: var(--red); font-size: 0.85rem; margin-top: 10px;">(Food Not Included)</p>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <div class="card">
-            <h2 style="margin-bottom: 25px; color: var(--blue);">Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <p class="faq-q">Is food included?</p>
-                <p class="faq-a">No</p>
-            </div>
-            <div class="faq-item">
-                <p class="faq-q">Is deposit refundable?</p>
-                <p class="faq-a">Yes (terms apply)</p>
-            </div>
-            <div class="faq-item">
-                <p class="faq-q">Is it girls-only?</p>
-                <p class="faq-a">Yes</p>
+        <div class="card glass">
+            <h2>Frequently Asked Questions</h2>
+            <div style="margin-top: 20px;">
+                <p><strong>Is food included?</strong> No</p>
+                <p><strong>Is deposit refundable?</strong> Yes (terms apply)</p>
+                <p><strong>Is it girls-only?</strong> Yes</p>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <div class="card">
-            <h2 style="margin-bottom: 20px; color: var(--blue);">Location</h2>
-            <p style="margin-bottom: 15px; font-weight: 600;">📍 Anishabad, near junior dps, Harnichak, Anisabad, Patna, Bihar 800002</p>
+        <div class="card glass">
+            <h2>Location</h2>
+            <p style="margin-bottom: 15px;">📍 Anishabad, Patna, Bihar 800002</p>
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.6738018370966!2d85.0898835754162!3d25.58249677746401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39edafdf03ba99ab%3A0xf497400ec082dba3!2sPG%20FOR%20GIRLS%20%7BSTUDENTS%20%2F%20WORKING%7D!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                width="100%" 
-                height="400" 
-                style="border:0; border-radius: 15px;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.632296566068!2d85.0934!3d25.5862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM1JzEwLjMiTiA4NcKwMDUnMzYuMiJF!5e0!3m2!1sen!2sin!4v1625555555555!5m2!1sen!2sin" 
+                width="100%" height="350" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
-
-    <footer style="text-align: center; padding: 50px; color: #777; font-size: 0.9rem;">
-        © 2026 Girls PG Anisabad Patna | All Rights Reserved
-    </footer>
 
     <div class="float-container">
         <a href="tel:8969994472" class="f-icon" style="background: var(--blue);">📞</a>
