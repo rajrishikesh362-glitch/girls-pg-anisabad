@@ -17,7 +17,7 @@
         :root {
             --yellow: #FFD54F;
             --orange: #FFB74D;
-            --sky: #87CEEB; /* Brighter Sky Blue */
+            --sky: #87CEEB;
             --blue: #003366;
             --wa: #25D366;
             --red: #D32F2F;
@@ -32,177 +32,162 @@
             overflow-x: hidden;
         }
 
-        /* ===== THE SUN ===== */
+        /* ===== THE SUN PULSE ===== */
         .sun {
             position: fixed;
-            top: -50px;
-            right: -50px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, #FFF9C4 0%, #FFD54F 50%, transparent 70%);
+            top: -60px;
+            right: -60px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, #FFF9C4 0%, #FFD54F 55%, transparent 75%);
             border-radius: 50%;
             z-index: -1;
-            filter: blur(20px);
-            animation: pulse 4s ease-in-out infinite;
+            filter: blur(25px);
+            animation: sunPulse 3s ease-in-out infinite;
         }
 
-        @keyframes pulse {
+        @keyframes sunPulse {
             0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 1; }
         }
 
-        /* ===== FAST CLOUDS ===== */
+        /* ===== FAST CLOUD DRIFT ===== */
         .cloud {
             position: fixed;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 50px;
+            border-radius: 60px;
             filter: blur(15px);
             z-index: -2;
-            animation: drift-fast linear infinite;
+            animation: driftFast linear infinite;
         }
 
-        @keyframes drift-fast {
-            from { transform: translateX(-400px); }
-            to { transform: translateX(110vw); }
+        @keyframes driftFast {
+            from { transform: translateX(-450px); }
+            to { transform: translateX(115vw); }
         }
 
-        /* ===== FAST FALLING LEAVES ===== */
+        /* ===== FAST LEAVES ===== */
         .leaf {
             position: fixed;
-            top: -50px;
+            top: -60px;
             z-index: 999;
             pointer-events: none;
-            animation: fall-fast linear infinite;
-            font-size: 24px;
+            animation: fallFast linear infinite;
+            font-size: 26px;
         }
 
-        @keyframes fall-fast {
+        @keyframes fallFast {
             0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(110vh) rotate(720deg) translateX(200px); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translateY(115vh) rotate(1080deg) translateX(250px); opacity: 0; }
         }
 
-        /* ===== GLASS EFFECT (Glassmorphism) ===== */
+        /* ===== GLASSMORPHISM EFFECT ===== */
         .glass {
-            background: rgba(255, 255, 255, 0.25) !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+            background: rgba(255, 255, 255, 0.28) !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
+            box-shadow: 0 12px 40px 0 rgba(0, 51, 102, 0.12) !important;
         }
 
         nav {
             position: sticky;
             top: 0;
-            padding: 15px 8%;
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
         }
 
-        .section { max-width: 1100px; margin: 30px auto; padding: 20px; position: relative; z-index: 10; }
+        .section { max-width: 1100px; margin: 40px auto; padding: 20px; position: relative; z-index: 10; }
         
-        .card {
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-        }
+        .card { padding: 35px; border-radius: 25px; margin-bottom: 35px; }
 
         .facilities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
         }
 
         .facility-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 10px;
+            gap: 12px;
+            font-weight: 700;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 12px;
+            transition: 0.3s;
         }
 
         .pricing-wrap {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
-        .price-card {
-            padding: 40px 20px;
-            border-radius: 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .price-card.featured { border: 2px solid var(--orange) !important; }
+        .price-card { padding: 45px 25px; border-radius: 25px; text-align: center; position: relative; transition: 0.4s; }
+        .price-card.featured { border: 3px solid var(--orange) !important; }
 
         .save-tag {
-            background: var(--orange); color: #fff; padding: 6px 16px;
-            border-radius: 20px; position: absolute; top: -18px; left: 50%;
-            transform: translateX(-50%); font-weight: 800; font-size: 0.85rem;
+            background: var(--orange); color: #fff; padding: 8px 18px;
+            border-radius: 25px; position: absolute; top: -20px; left: 50%;
+            transform: translateX(-50%); font-weight: 900; font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(255,183,77,0.4);
         }
 
-        .price-val { font-size: 2.8rem; font-weight: 800; margin: 10px 0; }
+        .price-val { font-size: 3.2rem; font-weight: 900; margin: 15px 0; color: var(--blue); }
 
-        .btn {
-            padding: 16px 32px; border-radius: 12px; border: none;
-            font-weight: 700; cursor: pointer; text-decoration: none;
-            display: inline-block; transition: 0.3s;
-        }
-        .btn-wa { background: var(--wa); color: white; }
-        .btn-call { background: var(--blue); color: white; }
-
-        .float-container { position: fixed; bottom: 30px; right: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 2000; }
-        .f-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 26px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-decoration: none; }
-
+        .btn-call { background: var(--blue); color: #fff; text-decoration: none; padding: 18px 35px; border-radius: 15px; font-weight: 800; display: inline-block; }
+        
+        .float-container { position: fixed; bottom: 35px; right: 30px; display: flex; flex-direction: column; gap: 20px; z-index: 2000; }
+        .f-icon { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); text-decoration: none; }
     </style>
 </head>
 <body>
 
     <div class="sun"></div>
     
-    <div class="cloud" style="width: 250px; height: 80px; top: 10%; animation-duration: 15s;"></div>
-    <div class="cloud" style="width: 350px; height: 100px; top: 25%; animation-duration: 22s; animation-delay: -5s;"></div>
-    <div class="cloud" style="width: 200px; height: 60px; top: 50%; animation-duration: 18s; animation-delay: -8s;"></div>
+    <div class="cloud" style="width: 280px; height: 90px; top: 12%; animation-duration: 12s;"></div>
+    <div class="cloud" style="width: 400px; height: 110px; top: 28%; animation-duration: 18s; animation-delay: -4s;"></div>
+    <div class="cloud" style="width: 220px; height: 70px; top: 55%; animation-duration: 15s; animation-delay: -7s;"></div>
 
     <script>
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 22; i++) {
             let leaf = document.createElement('div');
             leaf.className = 'leaf';
             leaf.innerHTML = '🍃';
             leaf.style.left = Math.random() * 100 + 'vw';
-            leaf.style.animationDuration = (Math.random() * 2 + 3) + 's'; // Fast: 3-5 seconds
-            leaf.style.animationDelay = (Math.random() * 5) + 's';
+            leaf.style.animationDuration = (Math.random() * 2 + 2) + 's'; // Extra Fast: 2-4 seconds
+            leaf.style.animationDelay = (Math.random() * 6) + 's';
             document.body.appendChild(leaf);
         }
     </script>
 
     <nav class="glass">
-        <div class="nav-logo" style="font-weight: 800;">Girls PG Anisabad</div>
-        <div style="font-size: 0.9rem; font-weight: 600;">Patna, Bihar</div>
+        <div class="nav-logo" style="font-weight: 900; font-size: 1.5rem;">Girls PG Anisabad</div>
+        <div style="font-size: 1rem; font-weight: 700;">Harnichak, Patna</div>
     </nav>
 
-    <header class="section glass" style="text-align: center; margin-top: 40px;">
-        <h1 style="font-size: 2.8rem; margin-bottom: 10px;">Girls PG — Anisabad Patna</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 20px; font-weight: 600;">Premium Triple Sharing Accommodation</p>
-        <p style="color: var(--red); font-weight: 800; background: rgba(255,255,255,0.7); display: inline-block; padding: 8px 20px; border-radius: 8px; border: 2px solid var(--red);">⚠️ NOTE: FOODING NOT INCLUDED</p>
+    <header class="section glass" style="text-align: center; margin-top: 50px;">
+        <h1 style="font-size: 3rem; margin-bottom: 12px;">Girls PG — Anisabad Patna</h1>
+        <p style="font-size: 1.3rem; margin-bottom: 25px; font-weight: 700;">Safe & Premium Triple Sharing Living</p>
+        <p style="color: var(--red); font-weight: 900; background: rgba(255,255,255,0.85); display: inline-block; padding: 10px 25px; border-radius: 12px; border: 3px solid var(--red); letter-spacing: 0.5px;">⚠️ NOTE: FOODING NOT INCLUDED</p>
     </header>
 
     <div class="section">
         <div class="card glass">
-            <h2 style="margin-bottom: 25px;">Facilities</h2>
+            <h2 style="margin-bottom: 30px; font-size: 2rem;">Facilities</h2>
             <div class="facilities-grid">
                 <div class="facility-item">🛏️ Bed & Mattress</div>
                 <div class="facility-item">📶 Wi-Fi</div>
                 <div class="facility-item">💧 RO Water</div>
                 <div class="facility-item">🔋 Power Backup</div>
-                <div class="facility-item">📹 CCTV Security</div>
+                <div class="facility-item)📹 CCTV Security</div>
                 <div class="facility-item">🧊 Refrigerator</div>
                 <div class="facility-item">🍳 Induction Allowed</div>
                 <div class="facility-item">👯 Triple Sharing</div>
@@ -212,34 +197,36 @@
             </div>
         </div>
 
-        <h2 style="text-align: center; margin-bottom: 35px;">Pricing Plans</h2>
+        <h2 style="text-align: center; margin: 50px 0 40px; font-size: 2.2rem;">Our Plans</h2>
         <div class="pricing-wrap">
             <div class="price-card glass">
                 <h3>Monthly</h3>
                 <div class="price-val">₹7,000</div>
-                <p style="font-weight: 700;">+ ₹7,000 Security Deposit</p>
+                <p style="font-weight: 800;">+ ₹7,000 Security Deposit</p>
             </div>
             <div class="price-card glass featured">
-                <div class="save-tag">SAVE ₹6,000</div>
+                <div class="save-tag">BEST VALUE — SAVE ₹6,000</div>
                 <h3>6 Months</h3>
                 <div class="price-val">₹36,000</div>
-                <p style="font-weight: 700;">+ ₹7,000 Security Deposit</p>
+                <p style="font-weight: 800;">+ ₹7,000 Security Deposit</p>
             </div>
             <div class="price-card glass featured">
-                <div class="save-tag">SAVE ₹24,000</div>
+                <div class="save-tag">MAX SAVINGS — SAVE ₹24,000</div>
                 <h3>Yearly</h3>
                 <div class="price-val">₹60,000</div>
-                <p style="font-weight: 700;">+ ₹7,000 Security Deposit</p>
+                <p style="font-weight: 800;">+ ₹7,000 Security Deposit</p>
             </div>
         </div>
     </div>
 
     <div class="section">
         <div class="card glass">
-            <h2>Frequently Asked Questions</h2>
-            <div style="margin-top: 20px;">
+            <h2 style="margin-bottom: 30px;">Frequently Asked Questions</h2>
+            <div style="font-size: 1.1rem; line-height: 1.8;">
                 <p><strong>Is food included?</strong> No</p>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
                 <p><strong>Is deposit refundable?</strong> Yes (terms apply)</p>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
                 <p><strong>Is it girls-only?</strong> Yes</p>
             </div>
         </div>
@@ -247,13 +234,17 @@
 
     <div class="section">
         <div class="card glass">
-            <h2>Location</h2>
-            <p style="margin-bottom: 15px;">📍 Anishabad, Patna, Bihar 800002</p>
+            <h2 style="margin-bottom: 20px;">Precise Location</h2>
+            <p style="margin-bottom: 20px; font-weight: 700;">📍 Anishabad, near junior dps, Harnichak, Anisabad, Patna, Bihar 800002</p>
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.632296566068!2d85.0934!3d25.5862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM1JzEwLjMiTiA4NcKwMDUnMzYuMiJF!5e0!3m2!1sen!2sin!4v1625555555555!5m2!1sen!2sin" 
-                width="100%" height="350" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.6672323719284!2d85.0953727!3d25.5798373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed29df03ba09ab%3A0xf497c00ec082db37!2sPG%20FOR%20GIRLS%20%7BSTUDENTS%20%2F%20WORKING%7D!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
+
+    <footer style="text-align: center; padding: 60px; font-weight: 600; color: rgba(0,51,102,0.6);">
+        © 2026 Girls PG Anisabad Patna | Premium Living for Girls
+    </footer>
 
     <div class="float-container">
         <a href="tel:8969994472" class="f-icon" style="background: var(--blue);">📞</a>
