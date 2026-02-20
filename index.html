@@ -4,72 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Girls PG — Anisabad Patna</title>
+<title>Best Girls PG in Anisabad Patna | Safe Ladies Hostel</title>
+
+<meta name="description"
+content="Top rated Girls PG in Anisabad Patna for students & working women. Safe, affordable, CCTV, WiFi, power backup. Book instantly.">
+
+<!-- ===== GOOGLE ANALYTICS (ADD YOUR ID) ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXX');
+</script>
 
 <style>
 
 body{
 margin:0;
 font-family:Segoe UI;
+background:#f0f8ff;
 color:#003366;
 text-align:center;
 overflow-x:hidden;
-
-/* Animated Sky */
-background:linear-gradient(#5aa9ff,#bfe8ff);
-animation:skyMove 20s infinite alternate;
 }
 
-@keyframes skyMove{
-0%{background:linear-gradient(#5aa9ff,#bfe8ff);}
-100%{background:linear-gradient(#7fc1ff,#e6f6ff);}
-}
-
-/* ===== CLOUDS ===== */
-.cloud{
-position:fixed;
-top:50px;
-width:200px;
-opacity:0.85;
-animation:cloudMove linear infinite;
-z-index:1;
-}
-
-.cloud img{width:100%;}
-
-@keyframes cloudMove{
-from{transform:translateX(-300px);}
-to{transform:translateX(120vw);}
-}
-
-/* ===== LIGHTNING FLASH ===== */
-.flash{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:white;
-opacity:0;
-pointer-events:none;
-z-index:9999;
-}
-
-/* ===== SNOW ===== */
+/* ===== SNOW EFFECT ===== */
 .snow{
 position:fixed;
 top:-10px;
 color:white;
 font-size:1em;
+user-select:none;
+z-index:9999;
 animation:fall linear infinite;
-z-index:9998;
 }
 
 @keyframes fall{
 to{transform:translateY(110vh);}
 }
 
-/* ===== NAV ===== */
+/* ===== NAVBAR ===== */
 nav{
 position:sticky;
 top:0;
@@ -88,15 +63,14 @@ color:#003366;
 
 /* ===== HERO ===== */
 header{
-padding:100px 20px;
-position:relative;
-z-index:2;
+background:linear-gradient(#6ec6ff,#bfe8ff);
+padding:80px 20px;
 }
 
 .hero-btn{
 background:#003366;
 color:white;
-padding:16px 30px;
+padding:16px 28px;
 margin:10px;
 border:none;
 border-radius:8px;
@@ -106,23 +80,50 @@ cursor:pointer;
 
 .whatsapp{background:#25D366}
 
+/* ===== CARD ===== */
 .card{
 background:white;
 max-width:1100px;
 margin:40px auto;
 padding:40px;
 border-radius:16px;
-box-shadow:0 0 20px rgba(0,0,0,0.1);
-position:relative;
-z-index:2;
+box-shadow:0 0 20px rgba(0,0,0,0.08);
 }
 
+/* ===== GRID ===== */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+margin-top:25px;
+}
+
+.price{
+border:2px solid #6ec6ff;
+padding:20px;
+border-radius:12px;
+}
+
+/* ===== FLOAT BUTTONS ===== */
+.float{
+position:fixed;
+right:18px;
+z-index:999;
+border:none;
+border-radius:50%;
+width:55px;
+height:55px;
+font-size:22px;
+cursor:pointer;
+}
+
+.call{bottom:90px;background:#003366;color:white}
+.wa{bottom:20px;background:#25D366;color:white}
+
 footer{
-background:#5aa9ff;
+background:#6ec6ff;
 padding:25px;
 margin-top:40px;
-z-index:2;
-position:relative;
 }
 
 </style>
@@ -130,23 +131,7 @@ position:relative;
 
 <body>
 
-<!-- ⚡ LIGHTNING FLASH -->
-<div class="flash" id="flash"></div>
-
-<!-- ☁️ CLOUDS -->
-<div class="cloud" style="animation-duration:60s; top:40px;">
-<img src="https://i.imgur.com/3sK6K9G.png">
-</div>
-
-<div class="cloud" style="animation-duration:90s; top:120px;">
-<img src="https://i.imgur.com/3sK6K9G.png">
-</div>
-
-<div class="cloud" style="animation-duration:70s; top:200px;">
-<img src="https://i.imgur.com/3sK6K9G.png">
-</div>
-
-<!-- ❄️ SNOW SCRIPT -->
+<!-- ===== SNOW SCRIPT ===== -->
 <script>
 for(let i=0;i<40;i++){
 let snow=document.createElement("div");
@@ -160,36 +145,22 @@ document.body.appendChild(snow);
 }
 </script>
 
-<!-- ⚡ THUNDER EFFECT -->
-<script>
-function lightning(){
-const flash=document.getElementById("flash");
-flash.style.opacity="0.8";
-setTimeout(()=>flash.style.opacity="0",100);
-}
-
-setInterval(()=>{
-if(Math.random()<0.4){
-lightning();
-}
-},3000);
-</script>
-
 <nav>
 <a href="#">Home</a>
-<a href="#">Pricing</a>
-<a href="#">Booking</a>
-<a href="#">Contact</a>
+<a href="#pricing">Pricing</a>
+<a href="#booking">Book</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <header>
 
 <h1>Girls PG — Anisabad Patna</h1>
-<p>Safe • Comfortable • Affordable Stay</p>
+<p>Safe • Affordable • Premium Stay for Students & Working Women</p>
 
 <button class="hero-btn whatsapp"
-onclick="window.open('https://wa.me/918969994472','_blank')">
-WhatsApp
+onclick="window.open('https://wa.me/918969994472?text=Hi%20I%20want%20details%20about%20PG%20availability','_blank')">
+WhatsApp Enquiry
 </button>
 
 <button class="hero-btn"
@@ -199,19 +170,112 @@ Call Now
 
 </header>
 
+<!-- ===== PRICING ===== -->
+<section id="pricing" class="card">
+
+<h2>Pricing Plans</h2>
+
+<div class="grid">
+
+<div class="price">
+<h3>₹7000 / Month</h3>
+<p>Triple Sharing</p>
+</div>
+
+<div class="price">
+<h3>₹36,000 — 6 Months</h3>
+<p>Save ₹6,000</p>
+</div>
+
+<div class="price">
+<h3>₹60,000 — 1 Year ⭐</h3>
+<p>Best Value</p>
+</div>
+
+</div>
+</section>
+
+<!-- ===== ONLINE BOOKING ===== -->
+<section id="booking" class="card">
+
+<h2>🔥 Instant Room Booking</h2>
+
+<p>Fill form to reserve your bed</p>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeybnccLzNMSXBJpdzUU6L6cVGiavVVWmfQApqMLKEXTxubMA/viewform?embedded=true"
+width="100%" height="650"></iframe>
+
+</section>
+
+<!-- ===== PAYMENT ===== -->
 <section class="card">
 
-<h2>Premium Girls PG Facilities</h2>
+<h2>Advance Payment</h2>
 
-<p>Wi-Fi • CCTV • Power Backup • Safe Environment • Study Area</p>
+<button class="hero-btn"
+onclick="window.open('https://rzp.io/l/YOUR_LINK','_blank')">
+Pay via Razorpay
+</button>
+
+<button class="hero-btn"
+onclick="window.open('upi://pay?pa=YOURUPI@upi','_blank')">
+Pay via UPI
+</button>
+
+</section>
+
+<!-- ===== LIVE GOOGLE REVIEWS ===== -->
+<section id="reviews" class="card">
+
+<h2>⭐ Google Reviews</h2>
+
+<div id="google-reviews">
+Loading reviews...
+</div>
+
+</section>
+
+<script>
+/* ===== GOOGLE REVIEWS API ===== */
+/* Replace YOUR_API_KEY and PLACE_ID */
+
+fetch("https://maps.googleapis.com/maps/api/place/details/json?place_id=PLACE_ID&fields=reviews&key=YOUR_API_KEY")
+.then(res=>res.json())
+.then(data=>{
+let html="";
+data.result.reviews.forEach(r=>{
+html+=`<p><b>${r.author_name}</b> ⭐${r.rating}<br>${r.text}</p><hr>`;
+});
+document.getElementById("google-reviews").innerHTML=html;
+});
+</script>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="card">
+
+<h2>Contact & Location</h2>
+
+<p>📞 8969994472</p>
+<p>📍 Anisabad, Patna</p>
+
+<iframe src="https://maps.google.com/maps?q=Anisabad,Patna&output=embed"
+width="100%" height="350"></iframe>
 
 </section>
 
 <footer>
 
 <p>© 2026 Girls PG Anisabad Patna</p>
+<p>Best Girls PG in Anisabad • Ladies Hostel in Patna</p>
 
 </footer>
+
+<!-- FLOAT BUTTONS -->
+<button class="float call"
+onclick="window.location.href='tel:8969994472'">📞</button>
+
+<button class="float wa"
+onclick="window.open('https://wa.me/918969994472','_blank')">💬</button>
 
 </body>
 </html>
